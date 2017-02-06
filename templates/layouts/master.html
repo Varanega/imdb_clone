@@ -5,23 +5,13 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>{% block title %}{% endblock %}</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <title>{% block title %}{% endblock %} | IMDB</title>
+     <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
 </head>
 <body>
 <div class="container">
-    {% if session['email'] %}
-    <h1>Bienvenido {{ session['email'] }}</h1>
-    <a href="{{ url_for('logout') }}" class="btn btn-danger">Cerrar Sesion</a>
-    {% endif %}
-    {% with messages = get_flashed_messages(with_categories=true) %}
-      {% if messages %}
-        {% for categoria,message in messages %}
-                <div class="alert alert-{{ categoria }}">{{ message }}</div>
-        {% endfor %}
-      {% endif %}
-    {% endwith %}
-{% block body %}{% endblock %}
+
+    {% block body %}{% endblock %}
 </div>
 </body>
 </html>
