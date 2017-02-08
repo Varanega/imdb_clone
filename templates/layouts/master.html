@@ -10,7 +10,13 @@
 </head>
 <body>
 <div class="container">
-
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        {% for categoria,message in messages %}
+                <div class="alert alert-{{ categoria }}">{{ message }}</div>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
     {% block body %}{% endblock %}
 </div>
 </body>

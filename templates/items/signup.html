@@ -3,8 +3,10 @@
 {% block body %}
 <div class="container">
     <h1 class="text-center">Sign up</h1>
-    <form action="">
+    <form action="" method="post">
          {{ form.csrf_token }}
+        <p>{{ form.username.label }}</p>
+        <p>{{ form.username(class="form-control") }}</p>
         <p>{{ form.email.label }}</p>
         <p>{{ form.email(class="form-control") }}</p>
         <p>{{ form.password1.label }}</p>
